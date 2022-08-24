@@ -1,0 +1,41 @@
+#%RAML 1.0 Library
+uses:
+  annotations: ../../../../glapi-global-apis-commons-commons/annotations/annotationsLibrary.raml
+
+types:
+  entity:
+      type: object
+      properties:
+        id:
+          (annotations.bindingDefinition):
+            - method: "GET"
+              input: "NONE"
+              output: "REQUIRED"
+          type: string
+          description: |
+            identifier of the entity.
+          required: false
+        shortName:
+            (annotations.bindingDefinition):
+              - method: "GET"
+                input: "NONE"
+                output: "OPTIONAL"
+            type: string
+            description: |
+              Is reference to short name.
+            required: false
+        name:
+            (annotations.bindingDefinition):
+              - method: "GET"
+                input: "NONE"
+                output: "REQUIRED"
+            type: string
+            description: |
+              Name of the business.
+            required: false
+
+
+
+
+
+

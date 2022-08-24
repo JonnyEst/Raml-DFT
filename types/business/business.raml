@@ -1,0 +1,71 @@
+#%RAML 1.0 Library
+uses:
+  annotations: ../../../glapi-global-apis-commons-commons/annotations/annotationsLibrary.raml
+  entity: entity/entity.raml
+  parameters: parameters/parameters.raml
+  segmentationTypes: segmentationType/segmentationType.raml
+
+types:
+  business:
+    type: object
+    properties:
+      entity:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "REQUIRED"
+        type: entity.entity
+        description: |
+          List of entity of business.
+        required: false
+      parameters:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "REQUIRED"
+        type: parameters.parameters[]
+      expirationDate:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "OPTIONAL"
+        type: date-only
+        description: |
+          Date of the expiriation to the contract.
+        required: false
+      fromDate:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "REQUIRED"
+        type: date-only
+        description: |
+          Date of create the account.
+        required: false
+      toDate:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "OPTIONAL"
+        type: date-only
+        description: |
+          Date of the end the account.
+        required: false
+      segmentationTypes:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "REQUIRED"
+        type: segmentationTypes.segmentationTypes[]
+        description: |
+          Type of segmentation in the business.
+        required: false
+      originId:
+        (annotations.bindingDefinition):
+          - method: "GET"
+            input: "NONE"
+            output: "REQUIRED"
+        type: string
+        description: |
+          Identifier of the origin in the business.
+        required: false
